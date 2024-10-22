@@ -35,7 +35,7 @@ This project is being developed as a part of the CMIS 3122: Rapid Application De
 **Project Team:**
 
 - _Kavindu Madulakshan \[202262\]_
-- _Yashoda Kawindi \[202260\]_
+- _Yashoda Kawindi \[20226\]_
 
 **Disclaimer:**
 
