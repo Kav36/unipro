@@ -1,0 +1,144 @@
+<!-- Copyright © 2024 Kavindu Madulakshan and Yashoda Kawindi. All rights reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Emergency | UniPro</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="icon" type="image/png" href="data/pictures/logo3.png" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2"><a href="javascript:window.history.back()">
+        <img src="data/pictures/logo_navbar.png" width="132" height="30" alt="" /></a>
+    </nav>
+
+    <div id="emergencyContacts" class="container-fluid">
+        <div class="card shadow mb-3">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">Emergency Contact</p>
+          </div>
+            <div class="card-body">
+                <div class="row" id="emergencyContactsRow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch("http://localhost:3000/emergencyContacts")
+            .then(response => response.json())
+            .then(emergencyData => {
+                const container = document.getElementById("emergencyContactsRow");
+
+                emergencyData.forEach((emergency, index) => {
+                    const card = document.createElement("div");
+                    card.classList.add("col");
+
+                    card.innerHTML = `
+                        <div class="card mb-3">
+                            <div class="card-header text-center shadow">
+                                <div class="row">
+                                    <div class="col">
+                                        <img id="emer_image${index + 1}" class="rounded-circle mb-3 mt-4" alt="Preview" width="160" height="160" required />
+                                        <h5 id="emer_name${index + 1}" name="emer_name${index + 1}">${emergency.name}</h5>
+                                        <h5 id="emer_pos${index + 1}" name="emer_pos${index + 1}">${emergency.position}</h5>
+                                        <h6 id="emer_phone${index + 1}" name="emer_phone${index + 1}">${emergency.telephone}</h6>
+                                        <h6 id="emer_email${index + 1}" name="emer_email${index + 1}">${emergency.email}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    const imgElement = card.querySelector(`#emer_image${index + 1}`);
+                    imgElement.src = `data/uploads/${emergency.pic}`;
+
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => console.error("Error fetching emergency contact data:", error));
+    </script>
+    <div id="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <form
+              action="http://localhost:3000/upload_complainFile"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <div class="col">
+                <div class="card shadow mb-3">
+                  <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">Complain</p>
+                  </div>
+                  <div class="card-body">
+                    <div class="row mb-3">
+                      <div class="form-floating mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="indexnum"
+                          name="indexnum"
+                          placeholder=" "
+                        />
+                        <label for="indexnum">Index Number</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="number"
+                          name="number"
+                          placeholder=" "
+                          oninput="this.value = this.value.replace(/[^0-9+]/g, '')"
+                        />
+                        <label for="number">Contact Number</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          class="form-control"
+                          id="comment"
+                          name="comment"
+                          placeholder=" "
+                          required
+                        ></textarea>
+                        <label for="comment">Comments</label>
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group">
+                          <input
+                            type="file"
+                            class="form-control"
+                            id="file1"
+                            name="file1"
+                            aria-describedby="inputGroupFileAddon04"
+                            aria-label="Upload"
+                            accept="image/*"
+                          />
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <button class="btn btn-primary btn-sm" type="submit">
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,296 @@
+<!-- Copyright © 2024 Kavindu Madulakshan and Yashoda Kawindi. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <title>UniPro</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="icon" type="image/png" href="data/pictures/logo3.png" />
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="data/script/script.js"></script>
+  </head>
+
+<body id="page-top">
+  <div id="wrapper">
+    <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+      <div class="container-fluid d-flex flex-column p-0"><a
+          class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="dashboard.html">
+          <img src="data/pictures/logo5.png" width="42" height="51.4" alt="" />
+        </a>
+        <hr class="sidebar-divider my-0">
+        <ul class="navbar-nav text-light" id="accordionSidebar">
+          <li class="nav-item"><a class="nav-link active" href="dashboard.html"><i
+                class="fa fa-home"></i><span>Home</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="profile.html"><i
+                class="fa fa-user"></i><span>Profile</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="result.html"><i
+                class="fa fa-graduation-cap"></i><span>Grades</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="forms.html"><i
+                class="fa fa-file-text"></i><span>Forms</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="references.html"><i
+                class="fa fa-book"></i><span>Resources</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="setting.html"><i
+                class="fa fa-cogs"></i><span>Setting</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="/logout"><i
+                class="fa fa-sign-out"></i><span>Logout</span></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+          <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop"
+              type="button"><i class="fas fa-bars"></i></button>
+            <ul class="navbar-nav flex-nowrap ms-auto">
+              <div class="d-none d-sm-block topbar-divider"></div>
+              <li class="nav-item dropdown no-arrow">
+                <h3><span class="badge rounded-pill bg-secondary" id="get_index">
+                    Guest
+                    <script>
+                      document.getElementById(
+                        "get_index"
+                      ).innerText = `${indexnum || "Guest"}`;
+                      if (get_index.innerText === "Guest") {
+      console.log("Redirecting to login.html");
+      window.location.href = "login.html";
+      alert("Timeout! Login again");
+    }
+                    </script>
+                  </span></h3>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div id="content">
+          <div class="container-fluid">
+            <h3 class="text-dark mb-4">Forms</h3>
+            <div class="row">
+              <div class="col">
+                <div class="card shadow mb-3">
+                  <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">
+                      Exam
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="container px-4">
+                          <div class="row text-center">
+                        <div class="col mb-3">
+                          <a href="form_properApplication.html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Proper Application</button>
+                        </a>
+                        </div>
+                        <div class="col mb-3">
+                          <a href="form_repeatApplication.html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Repeat Application</button>
+                          
+                        </a>
+                        </div>
+                        <div class="col mb-3">
+                          <a href="form_verification.html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Verification Form</button>
+                          </a>
+                        </a>
+                        </div>
+                        <div class="col mb-3">
+                          <a href="form_medical.html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Medical Application</button>
+                        </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <div class="card shadow mb-3">
+                  <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">
+                      First Year Student
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="container px-4">
+                          <div class="row text-center">
+                        <div class="col mb-3">
+                          <a href="form_registration(L1).html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Registration</button>
+                        </a>
+                        </div>
+                        <div class="col mb-3">
+                          <a href="form_pathRegistration.html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Path Registration</button>
+                        </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" id="secondyear" >
+              <div class="col">
+                <div class="card shadow mb-3">
+                  <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">
+                      Second Year Student
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="container px-4">
+                          <div class="row text-center">
+                        <div class="col mb-3">
+                          <a href="form_registration(L2).html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Registration</button>
+                        </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" id="thirdyear">
+              <div class="col">
+                <div class="card shadow mb-3">
+                  <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">
+                      Third Year Student
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="container px-4">
+                          <div class="row text-center">
+                        <div class="col mb-3">
+                          <a href="form_registration(General).html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Registration (General)</button>
+                        </a>
+                        </div>
+                        <div class="col mb-3">
+                          <a href="form_registration(JM).html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Registration (Joint Major)</button>
+                        </a>
+                        </div>
+                        <div class="col mb-3">
+                          <a href="form_registration(Sp).html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Registration (Special)</button>
+                        </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" id="fourthyear">
+              <div class="col">
+                <div class="card shadow mb-3">
+                  <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">
+                      Fourth Year Student
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="container px-4">
+                          <div class="row text-center">
+                        <div class="col mb-3">
+                          <a href="form_registration(l4jm).html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Registration (joint Major)</button>
+                        </a>
+                        </div>
+                        <div class="col mb-3">
+                          <a href="form_registration(l4Sp).html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Registration (Special)</button>
+                        </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <div class="card shadow mb-3">
+                  <div class="card-header py-3">
+                    <p class="text-primary m-0 fw-bold">
+                      Repeat Student
+                    </p>
+                  </div>
+                  <div class="card-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="container px-4">
+                          <div class="row text-center">
+                        <div class="col mb-3">
+                          <a href="form_registrationRepeatExam.html">
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-3">Registration</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  
+</body>
+
+</html>
+

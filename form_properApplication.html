@@ -1,0 +1,485 @@
+<!-- Copyright © 2024 Kavindu Madulakshan and Yashoda Kawindi. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <title>Form | UniPro</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="icon" type="image/png" href="data/pictures/logo3.png" />
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="data/script/script.js"></script>
+  </head>
+
+  <body id="page-top">
+    <div id="wrapper">
+      <nav
+        class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
+      >
+        <div class="container-fluid d-flex flex-column p-0">
+          <a
+            class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
+            href="dashboard.html"
+          >
+            <img
+              src="data/pictures/logo5.png"
+              width="42"
+              height="51.4"
+              alt=""
+            />
+          </a>
+          <hr class="sidebar-divider my-0" />
+          <ul class="navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item">
+              <a class="nav-link active" href="dashboard.html"
+                ><i class="fa fa-home"></i><span>Home</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="profile.html"
+                ><i class="fa fa-user"></i><span>Profile</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="result.html"
+                ><i class="fa fa-graduation-cap"></i><span>Grades</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="forms.html"
+                ><i class="fa fa-file-text"></i><span>Forms</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="references.html"
+                ><i class="fa fa-book"></i><span>Resources</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="setting.html"
+                ><i class="fa fa-cogs"></i><span>Setting</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/logout"
+                ><i class="fa fa-sign-out"></i><span>Logout</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+          <nav
+            class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top"
+          >
+            <div class="container-fluid">
+              <button
+                class="btn btn-link d-md-none rounded-circle me-3"
+                id="sidebarToggleTop"
+                type="button"
+              >
+                <i class="fas fa-bars"></i>
+              </button>
+              <ul class="navbar-nav flex-nowrap ms-auto">
+                <div class="d-none d-sm-block topbar-divider"></div>
+                <li class="nav-item dropdown no-arrow">
+                  <h3>
+                    <span
+                      class="badge rounded-pill bg-secondary"
+                      id="get_index"
+                    >
+                      Guest
+                      <script>
+                        document.getElementById("get_index").innerText = `${
+                          indexnum || "Guest"
+                        }`;
+                        if (get_index.innerText === "Guest") {
+      console.log("Redirecting to login.html");
+      window.location.href = "login.html";
+      alert("Timeout! Login again");
+    }
+                      </script>
+                    </span>
+                  </h3>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div id="content">
+            <div class="container-fluid">
+              <h3 class="text-dark mb-0">Registration for Examination</h3>
+              <h4 class="text-dark mb-3">
+                Only for Inernal Candidates (Proper)
+              </h4>
+              <form
+                action="/upload_feregpr1"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="indexnum"
+                                ><strong>Registration Number</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="indexnum"
+                                placeholder=""
+                                name="indexnum"
+                                readonly
+                              />
+                              <script>
+                                document.getElementById(
+                                  "indexnum"
+                                ).value = `${indexnum}`;
+                              </script>
+                              <input
+                                type="hidden"
+                                name="feregpr_tname"
+                                id="feregpr_tname"
+                              />
+                              <input
+                                type="hidden"
+                                name="feregpr_stname"
+                                id="feregpr_stname"
+                              />
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_lvl"
+                                ><strong>Level: </strong></label
+                              >
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                id="feregpr_lvl"
+                                name="feregpr_lvl"
+                                required
+                                onchange="fproper_lvl()"
+                              >
+                                <option selected value="Level 1">Level 1</option>
+                                <option value="Level 2">Level 2</option>
+                                <option value="Level 3">Level 3</option>
+                                <option value="Level 4">Level 4</option>
+                                
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_ename">
+                                <strong>Examination Name</strong></label
+                              >
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                id="feregpr_ename"
+                                name="feregpr_ename"
+                                onchange="set_feregpr_tname()"
+                              >
+                                <option selected value="S1">Semester 1 End Exam</option>
+                                <option value="S2">Semester 2 End Exam</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_aye"
+                                ><strong
+                                  >Academic Year of Examination</strong
+                                ></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="feregpr_aye"
+                                name="feregpr_aye"
+                                required
+                                oninput="this.value = this.value.replace(/[^0-9/]/g, '')"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-body">
+                        <div class="row">
+                          <label class="form-label" for="feregpr_fnameSal"
+                            ><strong>Full Name</strong></label
+                          >
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                id="feregpr_fnameSal"
+                                name="feregpr_fnameSal"
+                                disabled
+                              >
+                                <option selected value="Miss.">Miss.</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Rev.">Rev.</option>
+                              </select>
+                            </div>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="feregpr_fname"
+                              name="feregpr_fname"
+                              required
+                              readonly
+                            />
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_name"
+                                ><strong>Name with Initials</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="feregpr_name"
+                                name="feregpr_name"
+                                required
+                                readonly
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_add"
+                                ><strong>Permanent Address</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="feregpr_add"
+                                name="feregpr_add"
+                                required
+                                readonly
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_cn"
+                                ><strong>Contact No.</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="feregpr_cn"
+                                name="feregpr_cn"
+                                required
+                                readonly
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_comb">
+                                <strong>Combination/ Subject</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="feregpr_comb"
+                                name="feregpr_comb"
+                                required
+                              />
+    
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_dgr"
+                                ><strong
+                                  >Special/Joint Major/General
+                                </strong></label
+                              >
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                id="feregpr_dgr"
+                                name="feregpr_dgr"
+                                onchange="set_feregpr_stname()"
+                                required
+                              >
+                                <option selected value="-">-</option>
+                                <option value="General">General</option>
+                                <option value="JM">Joint Major</option>
+                                <option value="SP">Special</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_dor"
+                                ><strong>Date of Registration</strong></label
+                              ><input
+                                class="form-control"
+                                type="date"
+                                id="feregpr_dor"
+                                name="feregpr_dor"
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="feregpr_ay"
+                                ><strong>Academic Year</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="feregpr_ay"
+                                name="feregpr_ay"
+                                required
+                                oninput="this.value = this.value.replace(/[^0-9/]/g, '')"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="first_name"
+                                ><strong
+                                  >Subject Offering: Subject code and Subject
+                                  name must be clearly stated</strong
+                                ></label
+                              >
+                              <table
+                                class="table"
+                                id="table_fproper"
+                                name="table_fproper"
+                              >
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Subject Code</th>
+                                    <th scope="col">Subject Name</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <input
+                                        class="form-control"
+                                        type="text"
+                                        value=""
+                                        list="CourseNoList"
+                                      />
+                                    </td>
+                                    <td>
+                                      <input
+                                        class="form-control"
+                                        type="text"
+                                        value=""
+                                        list="CourseNameList"
+                                      />
+                                    </td>
+                                    <td class="text-center align-middle">
+                                      <i class="fa fa-minus-circle text-danger" aria-hidden="true" onclick="removeRow(this)" style="cursor:pointer;"></i>
+                                  </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <button
+                            class="btn btn-secondary btn-sm"
+                            type="button"
+                            onclick="addEmptyRow_fproper()"
+                            id="addRowButton"
+                          >
+                            Add Row
+                          </button>
+                        </div>
+                        <div class="mb-3">
+                          <button
+                            class="btn btn-primary btn-sm"
+                            type="submit"
+                            onclick="submit_feregpr()"
+                          >
+                            Save
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <datalist id="CourseNoList">
+    </datalist>
+    <datalist id="CourseNameList">
+    </datalist>
+    <script>
+      rd_feregpr();
+      rd_feregpr1();
+      rd_feregpr2();
+      fproper_lvl();
+      set_feregpr_tname();
+      set_feregpr_stname();
+    </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
+</html>

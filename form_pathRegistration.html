@@ -1,0 +1,483 @@
+<!-- Copyright © 2024 Kavindu Madulakshan and Yashoda Kawindi. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <title>Form | UniPro</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="icon" type="image/png" href="data/pictures/logo3.png" />
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="data/script/script.js"></script>
+  </head>
+
+  <body id="page-top">
+    <div id="wrapper">
+      <nav
+        class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
+      >
+        <div class="container-fluid d-flex flex-column p-0">
+          <a
+            class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
+            href="dashboard.html"
+          >
+            <img
+              src="data/pictures/logo5.png"
+              width="42"
+              height="51.4"
+              alt=""
+            />
+          </a>
+          <hr class="sidebar-divider my-0" />
+          <ul class="navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item">
+              <a class="nav-link active" href="dashboard.html"
+                ><i class="fa fa-home"></i><span>Home</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="profile.html"
+                ><i class="fa fa-user"></i><span>Profile</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="result.html"
+                ><i class="fa fa-graduation-cap"></i><span>Grades</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="forms.html"
+                ><i class="fa fa-file-text"></i><span>Forms</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="references.html"
+                ><i class="fa fa-book"></i><span>Resources</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="setting.html"
+                ><i class="fa fa-cogs"></i><span>Setting</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/logout"
+                ><i class="fa fa-sign-out"></i><span>Logout</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+          <nav
+            class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top"
+          >
+            <div class="container-fluid">
+              <button
+                class="btn btn-link d-md-none rounded-circle me-3"
+                id="sidebarToggleTop"
+                type="button"
+              >
+                <i class="fas fa-bars"></i>
+              </button>
+              <ul class="navbar-nav flex-nowrap ms-auto">
+                <div class="d-none d-sm-block topbar-divider"></div>
+                <li class="nav-item dropdown no-arrow">
+                  <h3>
+                    <span
+                      class="badge rounded-pill bg-secondary"
+                      id="get_index"
+                    >
+                      Guest
+                      <script>
+                        document.getElementById("get_index").innerText = `${
+                          indexnum || "Guest"
+                        }`;
+                        if (get_index.innerText === "Guest") {
+      console.log("Redirecting to login.html");
+      window.location.href = "login.html";
+      alert("Timeout! Login again");
+    }
+                      </script>
+                    </span>
+                  </h3>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div id="content">
+            <div class="container-fluid">
+              <h3 class="text-dark mb-3">Level 1 - Path Registration Form</h3>
+              <div class="row">
+                <div class="col">
+                  <form
+                    action="/upload_fPathReg"
+                    method="post"
+                    enctype="multipart/form-data"
+                  >
+                    <div class="card shadow mb-3">
+                      <div class="card-body">
+                        <div class="row">
+                          <input
+                            type="hidden"
+                            name="hidden_indexnum"
+                            value=""
+                            id="hidden_indexnum"
+                          />
+                          <script>
+                            document.getElementById(
+                              "hidden_indexnum"
+                            ).value = `${indexnum}`;
+                          </script>
+                          <label class="form-label" for="fpreg_fname"
+                            ><strong>Full Name</strong></label
+                          >
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                name="fpreg_fnameSal"
+                                id="fpreg_fnameSal" required disabled
+
+                              >
+                                <option selected value="Miss.">Miss.</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Rev.">Rev.</option>
+                              </select>
+                            </div>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="fpreg_fname"
+                              placeholder=""
+                              name="fpreg_fname" required readonly
+                            />
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="fpreg_name"
+                                ><strong>Name with Initials</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="fpreg_name"
+                                placeholder=""
+                                name="fpreg_name" required readonly
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="fpreg_add"
+                                ><strong>Postal Address</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="fpreg_add"
+                                placeholder=""
+                                name="fpreg_add" required readonly
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="fpreg_dob"
+                                ><strong>Date of Birth</strong></label
+                              ><input
+                                class="form-control"
+                                type="date"
+                                id="fpreg_dob"
+                                name="fpreg_dob"
+                                onchange="calculateAge()" required
+                              />
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="fpreg_age"
+                                ><strong>Age(years)</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="fpreg_age"
+                                name="fpreg_age" required
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="mb-3">
+                            <label class="form-label" for="first_name"
+                              ><strong>Gender</strong></label
+                            >
+                            <div class="row mb-3">
+                              <div class="col">
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="fpreg_gen"
+                                    id="fpreg_gen1"
+                                    value="Male" checked
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="inlineRadio1"
+                                    >Male</label
+                                  >
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="fpreg_gen"
+                                    id="fpreg_gen2"
+                                    value="Female"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="inlineRadio2"
+                                    >Female</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col">
+                                <div class="mb-3">
+                                  <label class="form-label" for="fpreg_zcore"
+                                    ><strong
+                                      >G.C.E. (A/L) Z- Score</strong
+                                    ></label
+                                  ><input
+                                    class="form-control"
+                                    type="text"
+                                    id="fpreg_zcore"
+                                    name="fpreg_zcore" required
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="mb-3">
+                                  <label class="form-label" for="fpreg_dis"
+                                    ><strong
+                                      >District of University Entrance
+                                    </strong></label
+                                  ><input
+                                    class="form-control"
+                                    type="text"
+                                    id="fpreg_dis"
+                                    name="fpreg_dis" required
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <div class="mb-3">
+                                  <label class="form-label" for="fpreg_con"
+                                    ><strong
+                                      >Contact No. for Immediate Correspondence
+                                    </strong></label
+                                  ><input
+                                    class="form-control"
+                                    type="text"
+                                    id="fpreg_con"
+                                    name="fpreg_con" required
+                                    oninput="this.value = this.value.replace(/[^0-9+]/g, '')"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <div class="mb-3">
+                                  <label class="form-label" for="first_name"
+                                    ><strong
+                                      >Choice of Subject Combination</strong
+                                    ></label
+                                  >
+                                  <table class="table" id="myTable">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Preferance</th>
+                                        <th scope="col">Combination</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row" class="text-center">
+                                          1
+                                        </th>
+                                        <td>
+                                          <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            name="fpreg_p1"
+                                            id="fpreg_p1"
+                                          >
+                                            <option selected value=""></option>
+                                            <option value="COMB 1">
+                                              COMB 1
+                                            </option>
+                                            <option value="COMB 2">
+                                              COMB 2
+                                            </option>
+                                            <option value="COMB 3">
+                                              COMB 3
+                                            </option>
+                                          </select>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row" class="text-center">
+                                          2
+                                        </th>
+                                        <td>
+                                          <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            name="fpreg_p2"
+                                            id="fpreg_p2" required
+                                          >
+                                            <option selected value=" "></option>
+                                            <option value="COMB 1">
+                                              COMB 1
+                                            </option>
+                                            <option value="COMB 2">
+                                              COMB 2
+                                            </option>
+                                            <option value="COMB 3">
+                                              COMB 3
+                                            </option>
+                                          </select>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row" class="text-center">
+                                          3
+                                        </th>
+                                        <td>
+                                          <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            name="fpreg_p3"
+                                            id="fpreg_p3"
+                                          >
+                                            <option selected value=" "></option>
+                                            <option value="COMB 1">
+                                              COMB 1
+                                            </option>
+                                            <option value="COMB 2">
+                                              COMB 2
+                                            </option>
+                                            <option value="COMB 3">
+                                              COMB 3
+                                            </option>
+                                          </select>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-0">
+                          <button class="btn btn-primary btn-sm" type="submit">
+                            Save
+                          </button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="card mb-3">
+                      <h6 class="card-header">
+                        Available subject combinations are
+                      </h6>
+                      <div class="card-body">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">Combination Code</th>
+                              <th scope="col">Combination Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>COMB 1</td>
+                              <td>MATH & STAT + CMIS + ELTN</td>
+                            </tr>
+                            <tr>
+                              <td>COMB 2</td>
+                              <td>MATH & STAT + ELTN + IMGT</td>
+                            </tr>
+                            <tr>
+                              <td>COMB 3</td>
+                              <td>MATH & STAT + IMGT + CMIS</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <h6>CMIS - Computing & Information Systems</h6>
+                        <h6>ELTN - Electronics</h6>
+                        <h6>IMGT - Industrial Management</h6>
+                        <h6>
+                          MATH & STAT - Mathematics, Mathematical Modeling &
+                          Statistic
+                        </h6>
+                      </div>
+                    </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      rd_fPathReg1();
+      rd_fPathReg2();
+      rd_fPathReg();
+    </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
+</html>

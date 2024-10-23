@@ -1,0 +1,239 @@
+<!-- Copyright © 2024 Kavindu Madulakshan and Yashoda Kawindi. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+  <title>Administration | UniPro</title>
+
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="data/style/style.css" />
+  <link rel="stylesheet" href="data/style/style.css" />
+  <link rel="icon" type="image/png" href="data/pictures/logo3.png">
+  
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  <script src="data/script/script.js"></script>
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="admin.html" >
+        <img src="data/pictures/logo_navbar.png" width="132" height="30" alt="" />
+      </a>
+      <ul class="navbar-nav flex-nowrap ms-auto">
+        <div class="d-none d-sm-block topbar-divider"></div>
+        <li class="nav-item dropdown no-arrow">
+          <h3><span class="badge rounded-pill bg-secondary  m-2" id="get_index">
+            Guest
+            <script>
+              document.getElementById(
+                "get_index"
+              ).innerText = `${indexnum || "Guest"}`;
+              if (get_index.innerText === "Guest1") {
+      window.location.href = "login.html";
+      alert("Timeout! Login again");
+    }
+            </script>
+            </span></h3>
+        </li>
+      </ul>
+  </nav>
+  <div class="container mt-5">
+    <h3 class="text mb-3">Dashboard Management</h3>
+    <form>
+        <div class="form-group mb-3">
+            <label for="ay">Academic Year:</label>
+            <input type="text" class="form-control" id="ay" name="ay">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="sem">Semester:</label>
+            <input type="text" class="form-control" id="sem" name="sem">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac0">Faculty 0:</label>
+            <input type="text" class="form-control" id="fac0" name="fac0">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac1">Faculty 1:</label>
+            <input type="text" class="form-control" id="fac1" name="fac1">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac2">Faculty 2:</label>
+            <input type="text" class="form-control" id="fac2" name="fac2">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac3">Faculty 3:</label>
+            <input type="text" class="form-control" id="fac3" name="fac3">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac4">Faculty 4:</label>
+            <input type="text" class="form-control" id="fac4" name="fac4">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac5">Faculty 5:</label>
+            <input type="text" class="form-control" id="fac5" name="fac5">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac6">Faculty 6:</label>
+            <input type="text" class="form-control" id="fac6" name="fac6">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac7">Faculty 7:</label>
+            <input type="text" class="form-control" id="fac7" name="fac7">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac8">Faculty 8:</label>
+            <input type="text" class="form-control" id="fac8" name="fac8">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="fac9">Faculty 9:</label>
+            <input type="text" class="form-control" id="fac9" name="fac9">
+        </div>
+
+        <button type="button" class="btn btn-success m-1" onclick="addData_tdash()">Add/Update Data</button>
+        <button type="button" class="btn btn-info m-1" onclick="searchData_tdash()">Search Data</button>
+    </form>
+</div>
+
+    <script>
+      async function addData_tdash() {
+        try {
+          const ay = document.getElementById("ay").value;
+          const sem = document.getElementById("sem").value;
+          const fac0 = document.getElementById("fac0").value;
+          const fac1 = document.getElementById("fac1").value;
+          const fac2 = document.getElementById("fac2").value;
+          const fac3 = document.getElementById("fac3").value;
+          const fac4 = document.getElementById("fac4").value;
+          const fac5 = document.getElementById("fac5").value;
+          const fac6 = document.getElementById("fac6").value;
+          const fac7 = document.getElementById("fac7").value;
+          const fac8 = document.getElementById("fac8").value;
+          const fac9 = document.getElementById("fac9").value;
+
+          if (
+            ay === "" ||
+            sem === "" ||
+            fac0 === "" ||
+            fac1 === "" ||
+            fac2 === "" ||
+            fac3 === "" ||
+            fac4 === "" ||
+            fac5 === "" ||
+            fac6 === "" ||
+            fac7 === "" ||
+            fac8 === "" ||
+            fac9 === ""
+          ) {
+            alert("There is one or more empty fields.");
+            return;
+          }
+
+          const data = {
+            AY: ay,
+            Semester: sem,
+            fac0,
+            fac1,
+            fac2,
+            fac3,
+            fac4,
+            fac5,
+            fac6,
+            fac7,
+            fac8,
+            fac9,
+          };
+          const response = await fetch("http://localhost:3000/insert_tdash", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            console.error(
+              `HTTP error! Status: ${response.status}, Response: ${errorText}`
+            );
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const responseText = await response.text();
+          console.log(responseText);
+          alert("Succesfully Saved!");
+          document.getElementById("ay").value = "";
+          document.getElementById("sem").value = "";
+          document.getElementById("fac0").value = "";
+          document.getElementById("fac1").value = "";
+          document.getElementById("fac2").value = "";
+          document.getElementById("fac3").value = "";
+          document.getElementById("fac4").value = "";
+          document.getElementById("fac5").value = "";
+          document.getElementById("fac6").value = "";
+          document.getElementById("fac7").value = "";
+          document.getElementById("fac8").value = "";
+          document.getElementById("fac9").value = "";
+        } catch (error) {
+          console.error("Error adding data:", error);
+        }
+      }
+
+      async function searchData_tdash() {
+        try {
+          const response = await fetch(`http://localhost:3000/search_tdash`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          if (data.length === 0) {
+            alert("No data found for the specified ID.");
+            return;
+          }
+
+          const result = data[0];
+
+          document.getElementById("ay").value = result.AY || "";
+          document.getElementById("sem").value = result.Semester || "";
+          document.getElementById("fac0").value = result.fac0 || "";
+          document.getElementById("fac1").value = result.fac1 || "";
+          document.getElementById("fac2").value = result.fac2 || "";
+          document.getElementById("fac3").value = result.fac3 || "";
+          document.getElementById("fac4").value = result.fac4 || "";
+          document.getElementById("fac5").value = result.fac5 || "";
+          document.getElementById("fac6").value = result.fac6 || "";
+          document.getElementById("fac7").value = result.fac7 || "";
+          document.getElementById("fac8").value = result.fac8 || "";
+          document.getElementById("fac9").value = result.fac9 || "";
+        } catch (error) {
+          console.error("Error searching data:", error);
+          alert("Error searching data. Please check the form and try again.");
+        }
+      }
+    </script>
+  </body>
+</html>

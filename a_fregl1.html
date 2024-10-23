@@ -1,0 +1,371 @@
+<!-- Copyright © 2024 Kavindu Madulakshan and Yashoda Kawindi. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <title>Administration | UniPro</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="icon" type="image/png" href="data/pictures/logo3.png" />
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="data/script/script.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="admin.html">
+        <img
+          src="data/pictures/logo_navbar.png"
+          width="132"
+          height="30"
+          alt=""
+        />
+      </a>
+      <ul class="navbar-nav flex-nowrap ms-auto">
+        <div class="d-none d-sm-block topbar-divider"></div>
+        <li class="nav-item dropdown no-arrow">
+          <h3>
+            <span class="badge rounded-pill bg-secondary m-2" id="get_index">
+              Guest
+              <script>
+                document.getElementById("get_index").innerText = `${
+                  indexnum || "Guest"
+                }`;
+                if (get_index.innerText === "Guest1") {
+      console.log("Redirecting to login.html");
+      window.location.href = "login.html";
+      alert("Timeout! Login again");
+    }
+              </script>
+            </span>
+          </h3>
+        </li>
+      </ul>
+    </nav>
+    <div class="container mt-0">
+      <h3 class="text mb-3">Level 1 - B.Sc. (General /Joint Major /Special) Degree Programme</h3>
+      <form>
+        <div class="form-group mb-3">
+          <label for="indexnum">Index:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="indexnum"
+            name="indexnum"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="ay">Academic Year:</label>
+          <input type="text" class="form-control" id="ay" name="ay" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="cn">Course Name:</label>
+          <input type="text" class="form-control" id="cn" name="cn" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="choi">Choice:</label>
+          <input type="text" class="form-control" id="choi" name="choi" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="tname">Table Name:</label>
+          <input type="text" class="form-control" id="tname" name="tname" />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="csvFile">Upload CSV File:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="csvFile"
+            name="csvFile"
+            accept=".csv"
+          />
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-primary m-1"
+          onclick="fetchAndDisplayData_fregl1()"
+        >
+          Fetch Data
+        </button>
+        <button
+          type="button"
+          class="btn btn-success m-1"
+          onclick="addData_fregl1()"
+        >
+          Add/Update Data
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger m-1"
+          onclick="deleteData_fregl1()"
+        >
+          Delete Data
+        </button>
+        <button
+          type="button"
+          class="btn btn-info m-1"
+          onclick="searchData_fregl1()"
+        >
+          Search Data
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning m-1"
+          onclick="fetchAndDisplayTableData_fregl1()"
+        >
+          Search Table
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary m-1"
+          onclick="importData_fregl1()"
+        >
+          Import Data from CSV
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary m-1"
+          onclick="exportData_fregl1()"
+        >
+          Export Data as CSV
+        </button>
+      </form>
+
+      <div id="tableContainer" class="mt-4"></div>
+      <div id="tableContainer1" class="mt-4"></div>
+    </div>
+
+    <script>
+      async function fetchAndDisplayData_fregl1() {
+        try {
+          const response = await fetch("http://localhost:3000/getall_fregl1");
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const dataHTML = await response.text();
+          document.getElementById("tableContainer").innerHTML = dataHTML;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          alert("Error fetching data. Please try again.");
+        }
+      }
+
+      async function deleteData_fregl1() {
+        try {
+          const indexnum = document.getElementById("indexnum").value;
+
+          if (indexnum === "") {
+            alert("Index Number is required for deleting data.");
+            return;
+          }
+
+          const response = await fetch(
+            `http://localhost:3000/delete_fregl1/${indexnum}`,
+            {
+              method: "DELETE",
+            }
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const responseText = await response.text();
+          console.log(responseText);
+          fetchAndDisplayData_fregl1();
+          clearInputFields();
+        } catch (error) {
+          console.error("Error deleting data:", error);
+          alert("Error deleting data. Please check the form and try again.");
+        }
+      }
+
+      async function addData_fregl1() {
+        try {
+          const indexnum = document.getElementById("indexnum").value;
+          const ay = document.getElementById("ay").value;
+          const cn = document.getElementById("cn").value;
+          const choi = document.getElementById("choi").value;
+          const tname = document.getElementById("tname").value;
+
+          if (
+            indexnum === "" ||
+            ay === "" ||
+            cn === "" ||
+            choi === "" ||
+            tname === ""
+          ) {
+            alert("There is one or more empty fields.");
+            return;
+          }
+
+          const data = {
+            indexnum,
+            fregl1_ay: ay,
+            fregl1_cn: cn,
+            fregl1_choi: choi,
+            fregl1_tname: tname,
+          };
+
+          const response = await fetch("http://localhost:3000/add_fregl1", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const responseText = await response.text();
+          console.log(responseText);
+          fetchAndDisplayData_fregl1();
+          clearInputFields();
+        } catch (error) {
+          console.error("Error adding data:", error);
+          alert("Error adding data. Please check the form and try again.");
+        }
+      }
+
+      async function importData_fregl1() {
+        try {
+          const csvFileInput = document.getElementById("csvFile");
+          const csvFile = csvFileInput.files[0];
+
+          if (!csvFile) {
+            throw new Error("Please select a CSV file for import.");
+          }
+
+          const formData = new FormData();
+          formData.append("csvFile", csvFile);
+
+          const response = await fetch("http://localhost:3000/import_fregl1", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const responseText = await response.text();
+          console.log(responseText);
+          fetchAndDisplayData_fregl1();
+        } catch (error) {
+          console.error("Error importing data:", error);
+          alert("Error importing data. Please check the file and try again.");
+        }
+      }
+
+      async function exportData_fregl1() {
+        try {
+          const response = await fetch(
+            "http://localhost:3000/export_fregl1_csv"
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const csvContent = await response.text();
+
+          const blob = new Blob([csvContent], { type: "text/csv" });
+          const link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          link.download = "exported_data_fregl1.csv";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (error) {
+          console.error("Error exporting data:", error);
+          alert("Error exporting data. Please try again.");
+        }
+      }
+
+      async function searchData_fregl1() {
+        try {
+          const indexnum = document.getElementById("indexnum").value;
+
+          if (indexnum === "") {
+            alert("Index Number is required for search data.");
+            return;
+          }
+
+          const response = await fetch(
+            `http://localhost:3000/search_fregl1/${indexnum}`
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const dataHTML = await response.text();
+          document.getElementById("tableContainer").innerHTML = dataHTML;
+          clearInputFields();
+        } catch (error) {
+          console.error("Error searching data:", error);
+          alert("Error searching data. Please check the form and try again.");
+        }
+      }
+
+      async function fetchAndDisplayTableData_fregl1() {
+        try {
+          const tname = document.getElementById("tname").value;
+
+          if (tname === "") {
+            alert("Table name is required for search data.");
+            return;
+          }
+
+          const response = await fetch(
+            `http://localhost:3000/getall_fregl1table?tname=${tname}`
+          );
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const dataHTML = await response.text();
+          document.getElementById("tableContainer1").innerHTML = dataHTML;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          alert("Error fetching data. Please try again.");
+        }
+      }
+
+      function clearInputFields() {
+        document.getElementById("indexnum").value = "";
+        document.getElementById("ay").value = "";
+        document.getElementById("cn").value = "";
+        document.getElementById("choi").value = "";
+        document.getElementById("tname").value = "";
+      }
+    </script>
+  </body>
+</html>
+
+
+
+

@@ -1,0 +1,768 @@
+<!-- Copyright © 2024 Kavindu Madulakshan and Yashoda Kawindi. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <title>Form | UniPro</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="data/style/style.css" />
+    <link rel="icon" type="image/png" href="data/pictures/logo3.png" />
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="data/script/script.js"></script>
+  </head>
+
+  <body id="page-top">
+    <div id="wrapper">
+      <nav
+        class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
+      >
+        <div class="container-fluid d-flex flex-column p-0">
+          <a
+            class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
+            href="dashboard.html"
+          >
+            <img
+              src="data/pictures/logo5.png"
+              width="42"
+              height="51.4"
+              alt=""
+            />
+          </a>
+          <hr class="sidebar-divider my-0" />
+          <ul class="navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item">
+              <a class="nav-link active" href="dashboard.html"
+                ><i class="fa fa-home"></i><span>Home</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="profile.html"
+                ><i class="fa fa-user"></i><span>Profile</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="result.html"
+                ><i class="fa fa-graduation-cap"></i><span>Grades</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="forms.html"
+                ><i class="fa fa-file-text"></i><span>Forms</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="references.html"
+                ><i class="fa fa-book"></i><span>Resources</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="setting.html"
+                ><i class="fa fa-cogs"></i><span>Setting</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/logout"
+                ><i class="fa fa-sign-out"></i><span>Logout</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+          <nav
+            class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top"
+          >
+            <div class="container-fluid">
+              <button
+                class="btn btn-link d-md-none rounded-circle me-3"
+                id="sidebarToggleTop"
+                type="button"
+              >
+                <i class="fas fa-bars"></i>
+              </button>
+              <ul class="navbar-nav flex-nowrap ms-auto">
+                <div class="d-none d-sm-block topbar-divider"></div>
+                <li class="nav-item dropdown no-arrow">
+                  <h3>
+                    <span
+                      class="badge rounded-pill bg-secondary"
+                      id="get_index"
+                    >
+                      Guest
+                      <script>
+                        document.getElementById("get_index").innerText = `${
+                          indexnum || "Guest"
+                        }`;
+                        if (get_index.innerText === "Guest") {
+                          console.log("Redirecting to login.html");
+                          window.location.href = "login.html";
+                          alert("Timeout! Login again");
+                        }
+                      </script>
+                    </span>
+                  </h3>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div id="content">
+            <div class="container-fluid">
+              <h3 class="text-dark mb-3">
+                Level 2 - B.Sc. (General /Joint Major /Special) Degree Programme
+              </h3>
+              <form
+                action="/upload_fregl21"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="card mb-3">
+                  <div class="card-header text-center shadow">
+                    <img
+                      id="imagePreview"
+                      src="data/pictures/profile1.png"
+                      class="rounded-circle mb-3 mt-4"
+                      alt="Preview"
+                      width="160"
+                      height="160"
+                      required
+                    />
+                    <div class="mb-3"></div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-body">
+                        <div class="row">
+                          <label class="form-label" for="email"
+                            ><strong>Full Name</strong></label
+                          >
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                id="fregl2_fnameSal"
+                                name="fregl2_fnameSal"
+                                disabled="disabled"
+                              >
+                                <option selected value="Miss.">Miss.</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Rev.">Rev.</option>
+                              </select>
+                            </div>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="fregl2_fname"
+                              name="fregl2_fname"
+                              required
+                              readonly
+                            />
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="first_name"
+                                ><strong>Academic Year</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="fregl2_ay"
+                                name="fregl2_ay"
+                                required
+                                oninput="this.value = this.value.replace(/[^0-9/]/g, '')"
+                              />
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="indexnum"
+                                ><strong>Index No.</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="indexnum"
+                                name="indexnum"
+                                readonly="readonly"
+                              />
+                              <script>
+                                document.getElementById(
+                                  "indexnum"
+                                ).value = `${indexnum}`;
+                              </script>
+                              <input
+                                type="hidden"
+                                name="fregl2_tname"
+                                id="fregl2_tname"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="fregl2_cn"
+                                ><strong
+                                  >Contact No. for Immediate
+                                  Correspondence</strong
+                                ></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="fregl2_cn"
+                                name="fregl2_cn"
+                                required
+                                readonly
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for=""
+                                ><strong>Combination</strong></label
+                              >
+                              <select
+                                class="form-control"
+                                id="fregl2_choi"
+                                name="fregl2_choi"
+                              >
+                                <option selected value="COMB1">
+                                  COMB 1
+                                </option>
+                                <option value="COMB2">
+                                  COMB 2
+                                </option>
+                                <option value="COMB3">
+                                  COMB 3
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-body">
+                        <table
+                          id="table_fregl2"
+                          name="table_fregl2"
+                          class="table"
+                        >
+                          <thead>
+                            <tr>
+                              <th colspan="3">
+                                <label class="form-label" for="first_name"
+                                  ><strong>Semester 1</strong></label
+                                >
+                              </th>
+                            </tr>
+                            <tr>
+                              <th colspan="3">Compulsory Modules</th>
+                            </tr>
+                            <tr>
+                              <th>Module Code</th>
+                              <th>Title of the Module</th>
+                              <th>No.of Credits</th>
+                            </tr>
+                          </thead>
+
+                          <tbody id="compulsoryBodySemester1">
+                            <tr>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                  list="CourseNoList"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                  list="CourseNameList"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                />
+                              </td>
+                              <td class="text-center align-middle">
+                                <i
+                                  class="fa fa-minus-circle text-danger"
+                                  aria-hidden="true"
+                                  onclick="removeRow(this)"
+                                  style="cursor: pointer"
+                                ></i>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <tr>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Total No.of Credits ="
+                              />Total No.of Credits =
+                            </td>
+                            <td>
+                              <input type="hidden" type="text" value="-" />
+                            </td>
+                            <td>
+                              <input
+                                class="form-control"
+                                type="text"
+                                value=""
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="End of "
+                              />
+                              <button
+                                class="btn btn-secondary btn-sm"
+                                onclick="addRow_fregjm('compulsoryBodySemester1')"
+                                type="button"
+                              >
+                                Add Row
+                              </button>
+                            </td>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Semester 1 "
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Compulsory"
+                              />
+                            </td>
+                          </tr>
+
+                          <thead>
+                            <th>Optional Module</th>
+                            <tr>
+                              <th>Module Code</th>
+                              <th>Title of the Module</th>
+                              <th>No.of Credits</th>
+                            </tr>
+                          </thead>
+                          <tbody id="optionalBodySemester1">
+                            <tr>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                  list="CourseNoList"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                  list="CourseNameList"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                />
+                              </td>
+                              <td class="text-center align-middle">
+                                <i
+                                  class="fa fa-minus-circle text-danger"
+                                  aria-hidden="true"
+                                  onclick="removeRow(this)"
+                                  style="cursor: pointer"
+                                ></i>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <tr>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Total No.of Credits ="
+                              />Total No.of Credits =
+                            </td>
+                            <td>
+                              <input type="hidden" type="text" value="-" />
+                            </td>
+                            <td>
+                              <input
+                                class="form-control"
+                                type="text"
+                                value=""
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="End of "
+                              />
+                              <button
+                                class="btn btn-secondary btn-sm"
+                                onclick="addRow_fregjm('optionalBodySemester1')"
+                                type="button"
+                              >
+                                Add Row
+                              </button>
+                            </td>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Semester 1 "
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Optional"
+                              />
+                            </td>
+                          </tr>
+
+                          <!-- Semester 2 content -->
+                          <thead>
+                            <tr>
+                              <th>
+                                <label class="form-label" for="first_name"
+                                  ><strong>Semester 2</strong></label
+                                >
+                              </th>
+                            </tr>
+                            <tr>
+                              <th>Compulsory Modules</th>
+                            </tr>
+                            <tr>
+                              <th>Module Code</th>
+                              <th>Title of the Module</th>
+                              <th>No.of Credits</th>
+                            </tr>
+                          </thead>
+                          <tbody id="compulsoryBodySemester2">
+                            <tr>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                  list="CourseNoList"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                  list="CourseNameList"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                />
+                              </td>
+                              <td class="text-center align-middle">
+                                <i
+                                  class="fa fa-minus-circle text-danger"
+                                  aria-hidden="true"
+                                  onclick="removeRow(this)"
+                                  style="cursor: pointer"
+                                ></i>
+                              </td>
+                            </tr>
+                          </tbody>
+
+                          <tr>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Total No.of Credits ="
+                              />Total No.of Credits =
+                            </td>
+                            <td>
+                              <input type="hidden" type="text" value="-" />
+                            </td>
+                            <td>
+                              <input
+                                class="form-control"
+                                type="text"
+                                value=""
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="End of "
+                              />
+                              <button
+                                class="btn btn-secondary btn-sm"
+                                onclick="addRow_fregjm('compulsoryBodySemester2')"
+                                type="button"
+                              >
+                                Add Row
+                              </button>
+                            </td>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Semsester 2 "
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Compulsory"
+                              />
+                            </td>
+                          </tr>
+                          <thead>
+                            <th>Optional Module</th>
+                            <tr>
+                              <th>Module Code</th>
+                              <th>Title of the Module</th>
+                              <th>No.of Credits</th>
+                            </tr>
+                          </thead>
+                          <tbody id="optionalBodySemester2">
+                            <tr>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                  list="CourseNoList"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                  list="CourseNameList"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  value=""
+                                />
+                              </td>
+                              <td class="text-center align-middle">
+                                <i
+                                  class="fa fa-minus-circle text-danger"
+                                  aria-hidden="true"
+                                  onclick="removeRow(this)"
+                                  style="cursor: pointer"
+                                ></i>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <tr>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Total No.of Credits ="
+                              />Total No.of Credits =
+                            </td>
+                            <td>
+                              <input type="hidden" type="text" value="-" />
+                            </td>
+                            <td>
+                              <input
+                                class="form-control"
+                                type="text"
+                                value=""
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="End of "
+                              />
+                              <button
+                                class="btn btn-secondary btn-sm"
+                                onclick="addRow_fregjm('optionalBodySemester2')"
+                                type="button"
+                              >
+                                Add Row
+                              </button>
+                            </td>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Semester 2 "
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="hidden"
+                                type="text"
+                                value="Optional"
+                              />
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-body">
+                        <label class="form-label" for="first_name"
+                          ><strong>Registration Fee : Rs.150</strong></label
+                        >
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="fregl2_dpay"
+                                ><strong>Date of Payments</strong></label
+                              ><input
+                                class="form-control"
+                                type="date"
+                                id="fregl2_dpay"
+                                name="fregl2_dpay"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="fregl2_recno"
+                                ><strong>Receipt No.</strong></label
+                              ><input
+                                class="form-control"
+                                type="text"
+                                id="fregl2_recno"
+                                name="fregl2_recno"
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="city"
+                                ><strong
+                                  >Attached Registration Fee Receipt (Image)</strong
+                                ></label
+                              >
+                              <div class="form-group">
+                                <input
+                                  type="file"
+                                  class="fregl2_rec"
+                                  id="fregl2_rec"
+                                  name="fregl2_rec"
+                                  required
+                                  accept="image/*"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          class="btn btn-primary btn-sm"
+                          type="submit"
+                          onclick="submit_fregl2()"
+                        >
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <datalist id="CourseNoList">
+    </datalist>
+    <datalist id="CourseNameList">
+    </datalist>
+    <script>
+      set_fregl2_tname();
+      rd_fregl2();
+      rd_fregl21();
+      rd_fregl22();
+      rd_fregl23();
+    </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
+</html>
+
+

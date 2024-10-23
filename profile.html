@@ -1,0 +1,347 @@
+<!-- Copyright © 2024 Kavindu Madulakshan and Yashoda Kawindi. All rights reserved. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+  <title>Profile | UniPro</title>
+
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="data/style/style.css" />
+  <link rel="icon" type="image/png" href="data/pictures/logo3.png">
+
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  <script src="data/script/script.js"></script>
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+    <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+      <div class="container-fluid d-flex flex-column p-0"><a
+          class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="dashboard.html">
+          <img src="data/pictures/logo5.png" width="42" height="51.4" alt="" />
+        </a>
+        <hr class="sidebar-divider my-0">
+        <ul class="navbar-nav text-light" id="accordionSidebar">
+          <li class="nav-item"><a class="nav-link active" href="dashboard.html"><i
+                class="fa fa-home"></i><span>Home</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="profile.html"><i
+                class="fa fa-user"></i><span>Profile</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="result.html"><i
+                class="fa fa-graduation-cap"></i><span>Grades</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="forms.html"><i
+                class="fa fa-file-text"></i><span>Forms</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="references.html"><i
+                class="fa fa-book"></i><span>Resources</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="setting.html"><i
+                class="fa fa-cogs"></i><span>Setting</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="/logout"><i
+                class="fa fa-sign-out"></i><span>Logout</span></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+          <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop"
+              type="button"><i class="fas fa-bars"></i></button>
+            <ul class="navbar-nav flex-nowrap ms-auto">
+              <div class="d-none d-sm-block topbar-divider"></div>
+              <li class="nav-item dropdown no-arrow">
+                <h3><span class="badge rounded-pill bg-secondary" id="get_index">
+                    Guest
+                    <script>
+                      document.getElementById(
+                        "get_index"
+                      ).innerText = `${indexnum || "Guest"}`;
+                      if (get_index.innerText === "Guest") {
+      console.log("Redirecting to login.html");
+      window.location.href = "login.html";
+      alert("Timeout! Login again");
+    }
+                    </script>
+                  </span></h3>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div id="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">
+                          Personal Information
+                        </p>
+                      </div>
+                      <form action="/upload_profilePic" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                          <div class="card-body text-center shadow">
+                            <div id="imagePreviewContainer"
+                              class="d-flex justify-content-center align-items-center flex-column">
+                              <img id="imagePreview" src="data/pictures/profile1.png" class="rounded-circle mb-3 mt-4"
+                                alt="Preview" width="160" height="160" required>
+                            </div>
+                            <div class="mb-3 text-center">
+                              <input type="hidden" name="hidden_indexnum0" value="" id="hidden_indexnum0" />
+                              <script>
+                                document.getElementById(
+                                  "hidden_indexnum0"
+                                ).value = `${indexnum}`;
+                              </script>
+                              <input type="file" name="pro_pic" id="pro_pic" accept="image/*" style="display: none;"
+                                onchange="previewImage(this)" required>
+                              <button type="button" class="btn btn-outline-primary btn-sm camera-button"
+                                onclick="document.getElementById('pro_pic').click()"><i class="fa fa-camera"
+                                  aria-hidden="true"></i></button>
+                              <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                      <form action="/upload_profilePI" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col">
+                              <div class="mb-3">
+                                <input type="hidden" name="hidden_indexnum" value="" id="hidden_indexnum" />
+                                <script>
+                                  document.getElementById(
+                                    "hidden_indexnum"
+                                  ).value = `${indexnum}`;
+                                </script>
+                                <label class="form-label" for="pro_fname"><strong>Full Name</strong></label>
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <select class="form-select" aria-label="Default select example" name="pro_fnameSal"
+                                      id="pro_fnameSal" required>
+                                      <option selected value="Mr.">Mr.</option>
+                                      <option value="Miss.">Miss.</option>
+                                      <option value="Mrs.">Mrs.</option>
+                                      <option value="Rev.">Rev.</option>
+                                    </select>
+                                  </div>
+                                  <input class="form-control" type="text" id="pro_fname" name="pro_fname" required />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="mb-3"><label class="form-label" for="pro_name"><strong>Name with
+                                    Initials</strong></label><input class="form-control" type="text" id="pro_name"
+                                  name="pro_name" required />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <div class="mb-3">
+                                <label class="form-label" for="pro_nic"><strong>NIC</strong></label><input
+                                  class="form-control" type="text" id="pro_nic" name="pro_nic" required oninput="this.value = this.value.replace(/[^0-9VXvx]/g, '')"/>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="mb-3">
+                                <label class="form-label" for="pro_dob"><strong>Date of Birth</strong></label><input
+                                  class="form-control" type="date" id="pro_dob" name="pro_dob" required />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <div class="mb-3">
+                                <label class="form-label" for="pro_gender"><strong>Gender</strong>
+                                  <div>
+                                </label>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="pro_gender" id="pro_gender1"
+                                    value="Male" checked>
+                                  <label class="form-check-label" for="pro_gender1">
+                                    Male
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="pro_gender" id="pro_gender2"
+                                    value="Female">
+                                  <label class="form-check-label" for="pro_gender2">
+                                    Female
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <button class="btn btn-primary btn-sm" type="submit">
+                            Save Settings
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+
+                  </div>
+
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">
+                          Academic Information
+                        </p>
+                      </div>
+                      <form action="/upload_profileAI" method="post">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col">
+                              <div class="mb-3">
+                                <input type="hidden" name="hidden_indexnum1" value="" id="hidden_indexnum1" />
+                                <script>
+                                  document.getElementById(
+                                    "hidden_indexnum1"
+                                  ).value = `${indexnum}`;
+                                </script>
+                                <label class="form-label" for="pro_ay"><strong>Academic Year</strong></label><input
+                                  class="form-control" type="text" id="pro_ay" name="pro_ay" placeholder="20XX/20YY" oninput="this.value = this.value.replace(/[^0-9/]/g, '')"
+                                  required />
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="mb-3">
+                                <label class="form-label" for="pro_dor"><strong>Date of
+                                    Registration</strong></label><input class="form-control" type="date" id="pro_dor"
+                                  name="pro_dor" required />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <button class="btn btn-primary btn-sm" type="submit">
+                              Save Settings
+                            </button>
+                          </div>
+
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                      <p class="text-primary m-0 fw-bold">Contact Settings</p>
+                    </div>
+
+                    <div class="card-body">
+                      <form action="/upload_profileCon" method="post">
+                        <div class="mb-3">
+                          <input type="hidden" name="hidden_indexnum2" value="" id="hidden_indexnum2" />
+                          <script>
+                            document.getElementById(
+                              "hidden_indexnum2"
+                            ).value = `${indexnum}`;
+                          </script>
+                          <label class="form-label" for="address"><strong>Address</strong></label><input
+                            class="form-control" type="text" id="pro_add" name="pro_add" required />
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="pro_mn"><strong>Mobile No</strong></label><input
+                                class="form-control" type="text" id="pro_mn" name="pro_mn" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')"/>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="pro_hn"><strong>Home Tel No</strong></label><input
+                                class="form-control" type="text" id="pro_hn" name="pro_hn" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="pro_ea"><strong>Email Address</strong></label><input
+                            class="form-control" type="text" id="pro_ea" name="pro_ea" required />
+                        </div>
+
+                        <div class="mb-3">
+                          <button class="btn btn-primary btn-sm" type="submit">
+                            Save&nbsp;Settings
+                          </button>
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                      <p class="text-primary m-0 fw-bold">In Case of Emergancy</p>
+                    </div>
+                    <div class="card-body">
+                      <form action="/upload_profileICE" method="post">
+                        <div class="mb-3">
+                          <input type="hidden" name="hidden_indexnum3" value="" id="hidden_indexnum3" />
+                          <script>
+                            document.getElementById(
+                              "hidden_indexnum3"
+                            ).value = `${indexnum}`;
+                          </script>
+                          <label class="form-label" for="pro_icefn"><strong>Full Name</strong></label><input
+                            class="form-control" type="text" id="pro_icefn" name="pro_icefn" required />
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="pro_iceadd"><strong>Address</strong></label><input
+                            class="form-control" type="text" id="pro_iceadd" name="pro_iceadd" required />
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="pro_icemn"><strong>Mobile No</strong></label><input
+                                class="form-control" type="text" id="pro_icemn" name="pro_icemn" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')"/>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="mb-3">
+                              <label class="form-label" for="pro_icerel"><strong>Relationship</strong></label><input
+                                class="form-control" type="text" id="pro_icerel" name="pro_icerel" required />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <button class="btn btn-primary btn-sm" type="submit">
+                            Save Settings
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    rd_profilePI();
+    rd_profileAI();
+    rd_profileCon();
+    rd_profileICE();
+  </script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
