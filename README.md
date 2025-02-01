@@ -1,42 +1,53 @@
-**UniPro - University Profile Connect**
+# **UniPro - University Profile Connect**
 
-**Project Objective:**
+## **Project Objective**  
+The objective of this project is to streamline university profile management for undergraduate students and administrative staff. **UniPro** provides a **user-friendly interface** to efficiently manage **personal information, academic records, course registrations, and communication** within the university.  
 
-_The objective of this project is to streamline the process of university profile management for undergraduate students and administration within University. This system aims to provide a user-friendly interface for students and administrative staff to efficiently manage various aspects of university profiles, including personal information, academic records, course registrations, and communication._
+---
 
-**Key Features:**
+## **Key Features**  
 
-- _Student Profile Management:_
-  - Allows students to create and update their profiles with personal information, contact details, and academic records.
-- _Course Registration:_
-  - Facilitates students to register for courses online, and manage their academic progress.
-- _Administrative Tools_:
-  - Provides administrative staff with tools to manage student profiles, course offerings with students.
-- _Communication Platform:_
-  - Integrates a messaging system to facilitate communication between students and administrative staff, as well as among students themselves.
+### 🏫 **Student Profile Management**  
+- Allows students to **create and update** their profiles with personal details, contact information, and academic records.  
 
-**Technologies Used:**
+### 📚 **Course Registration**  
+- Enables students to **register for courses online** and track their academic progress.  
 
-- _Frontend:_
-  - HTML, CSS, JavaScript
-- _Backend:_
-  - Node.js, MySQL
-- _Frameworks/Libraries:_
-  - Bootstrap, jQuery
-- _Development Tools:_
-  - Visual Studio Code, XAMPP, Bootstrap Studio
+### 🛠️ **Administrative Tools**  
+- Provides administrative staff with **tools to manage student profiles** and course offerings.  
 
-This project is being developed as a part of the CMIS 3122: Rapid Application Development module by undergraduate students at Wayamba University of Sri Lanka.
+### 💬 **Communication Platform**  
+- Integrates a **messaging system** to facilitate communication between students and administrative staff, as well as among students.  
 
-**Project Advisor:**
+---
 
-- _Mr. T. Arudchelvam_
+## **Technologies Used**  
 
-**Project Team:**
+### 🌐 **Frontend**  
+- HTML, CSS, JavaScript  
 
-- _Kavindu Madulakshan \[202262\]_
-- _Yashoda Kawindi \[202260\]_
+### 🖥️ **Backend**  
+- Node.js, MySQL  
 
-**Disclaimer:**
+### 📦 **Frameworks & Libraries**  
+- Bootstrap, jQuery  
 
-_This project is developed solely for educational purposes as a part of the curriculum and is not intended for commercial use. All design elements and functionalities are subject to change and improvement based on project requirements and feedback._
+### 🛠️ **Development Tools**  
+- Visual Studio Code, XAMPP, Bootstrap Studio  
+
+---
+
+## **Project Information**  
+This project is being developed as part of the **CMIS 3122: Rapid Application Development** module by undergraduate students at **Wayamba University of Sri Lanka**.  
+
+### **Project Advisor**  
+- **Mr. T. Arudchelvam**  
+
+### **Project Team**  
+- **Kavindu Madulakshan** *(202262)*  
+- **Yashoda Kawindi** *(202260)*  
+
+---
+
+## **Disclaimer**  
+This project is developed solely for **educational purposes** as part of the university curriculum. It is **not intended for commercial use**. All design elements and functionalities are subject to **modifications and improvements** based on project requirements and feedback.  
