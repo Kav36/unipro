@@ -44,8 +44,8 @@ This project is being developed as part of the **CMIS 3122: Rapid Application De
 - **Mr. T. Arudchelvam**  
 
 ### **Project Team**  
-- **Kavindu Madulakshan** *(202262)*  
-- **Yashoda Kawindi** *(202260)*  
+- **Kavindu Madulakshan**  
+- **Yashoda Kawindi**   
 
 ---
 
